@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from "redux";
-import todoReducer from "./Reducers/userReducer";
-import useReducer from "./Reducers/userReducer";
+import todoReducer from "./Reducers/todoReducer";
+import userReducer from "./Reducers/userReducer";
 
 const rootReducer = combineReducers({
   todoReducer,
-  useReducer,
+  userReducer,
 });
 //store olustur
 const store = createStore(rootReducer);

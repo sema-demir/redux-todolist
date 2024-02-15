@@ -1,4 +1,5 @@
 const initialState = {
+  isAdmin: false,
   userİnfo: {},
 };
 
