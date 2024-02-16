@@ -1,3 +1,5 @@
+import { ActionTypes } from "../actionTypes";
+
 const initialState = {
   todos: [],
 };
@@ -5,7 +7,7 @@ const initialState = {
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     //type ı add todo olan aksiyon tetiklenirse
-    case "ADD_TODO":
+    case ActionTypes.ADD:
       // yeni todoyu eksilerin arasına ekle
       const tempTodos = state.todos.concat(action.payload);
 
@@ -15,7 +17,7 @@ const todoReducer = (state = initialState, action) => {
       };
 
     //type delete olan aksiyon tetiklenirse
-    case "DELETE":
+    case ActionTypes.DELETE:
       const filtred = state.todos.filter((todo) => todo.id !== action.payload);
 
       //state in son degeri
@@ -23,7 +25,7 @@ const todoReducer = (state = initialState, action) => {
         todos: filtred,
       };
 
-    case "UPDATE":
+    case ActionTypes.UPDATE:
       //DİZİDEKİ ESKİ TODO  ile action un payloadıyla gelen todoyo yerdeğiştir
       const updated = state.todos.map((item) =>
         item.id === action.payload.id ? action.payload : item

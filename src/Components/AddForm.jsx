@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
+import { ActionTypes } from "../Redux/actionTypes";
+import { addTodo } from "../Redux/todoActions";
 
 const AddForm = () => {
   // dispacth kurulum
@@ -19,10 +21,7 @@ const AddForm = () => {
     //console.log(newTodo);
 
     // reducera aksiyonu ilet
-    dispatch({
-      type: "ADD_TODO",
-      payload: newTodo,
-    });
+    dispatch(addTodo(newTodo));
 
     //formu temizle
     e.target.reset();
