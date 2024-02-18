@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { v4 } from "uuid";
 import { ActionTypes } from "../Redux/actionTypes";
 import { addTodo } from "../Redux/todoActions";
+import axios from "axios";
 
 const AddForm = () => {
   // dispacth kurulum
@@ -20,8 +21,13 @@ const AddForm = () => {
     };
     //console.log(newTodo);
 
-    // reducera aksiyonu ilet
-    dispatch(addTodo(newTodo));
+    //veriyi apiye gönder Api ya veri göndermek
+    //için post istegi attım
+
+    axios
+      .post("/todos", newTodo)
+      // reducera aksiyonu ilet
+      .then(() => dispatch(addTodo(newTodo)));
 
     //formu temizle
     e.target.reset();

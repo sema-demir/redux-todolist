@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { ActionTypes } from "../Redux/actionTypes";
 import { updateTodo } from "../Redux/todoActions";
+import axios from "axios";
 
 const Modal = ({ close, todo }) => {
   //dispatch kurulumu yap
@@ -15,8 +16,13 @@ const Modal = ({ close, todo }) => {
     const updated = { ...todo, text: text };
     // console.log(updated);
 
-    //store güncelle
-    dispatch(updateTodo(updated));
+    //düzenleme butonu tıklanıp yeni değer yazıldıgında
+    //Api güncelle
+    axios
+      .patch(`/todos/${updated.id}`, { text })
+
+      //store güncelle
+      .then(() => dispatch(updateTodo(updated)));
 
     //modalı kapat
     close();

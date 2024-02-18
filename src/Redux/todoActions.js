@@ -12,3 +12,7 @@ export const updateTodo = (payload) => ({
   type: ActionTypes.UPDATE,
   payload,
 });
+export const setTodos = (payload) => ({
+  type: ActionTypes.SET,
+  payload,
+});
