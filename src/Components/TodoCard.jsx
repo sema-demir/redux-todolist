@@ -22,8 +22,8 @@ const TodoCard = ({ todo }) => {
   //silme fonksiyonunu tetikler
   const handleDelete = () => {
     //apiden sil
-    axios.delete(`/todos/${todo.id}`).then(
-      () => dispatch(deleteTodo(todo.id))
+    axios.delete(`/todos/${todo.id}`)
+    .then(() => dispatch(deleteTodo(todo.id))
 
       //sil butonuna basınca todonun silinmesi icin
       //emir gönderdik todo siler
